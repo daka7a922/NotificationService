@@ -29,7 +29,7 @@ public class NotificationController {
     public ResponseEntity<NotificationLog> createNotificationLog(@RequestBody NotificationLog notificationLog) {
 
         if (notificationLog.getMessage() == null || notificationLog.getRecipient() == null) {
-            return ResponseEntity.badRequest().build(); // Or throw a custom exception
+            return ResponseEntity.badRequest().build();
         }
         NotificationLog createdLog = notificationService.recordNotification(notificationLog);
         return new ResponseEntity<>(createdLog, HttpStatus.CREATED);
